@@ -1,8 +1,8 @@
 function validate_installed() {
   prog=$1
-  if which "$prog"
+  if ! which "$prog"
   then
-    echo "git is not installed"
+    echo "$prog is not installed"
     exit 1
   fi
 }
