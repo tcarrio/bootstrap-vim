@@ -2,6 +2,10 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 set nu
 
+" ctrlp config - file searching
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/node_modules/*
+
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -13,8 +17,9 @@ Plugin 'VundleVim/Vundle.vim'
 
 " !! Install plugins here
 
-" File explorer
+" File explorer and search
 Plugin 'scrooloose/nerdtree'
+Plugin 'ctrlpvim/ctrlp.vim'
 
 " Status bar
 Plugin 'vim-airline/vim-airline'
@@ -27,6 +32,11 @@ Plugin 'sheerun/vim-polyglot'
 
 " Async Linting https://github.com/dense-analysis/ale/blob/master/supported-tools.md
 Plugin 'w0rp/ale'
+
+" Async Completion Framework and its Dependencies
+Plugin 'roxma/nvim-yarp'
+Plugin 'roxma/vim-hug-neovim-rpc'
+Plugin 'shougo/deoplete.nvim'
 
 " VSCode Language Server Support (TS, JS, etc.)
 Plugin 'neoclide/coc.nvim'
@@ -93,3 +103,5 @@ let g:ale_fixers = {
 \}
 let g:ale_fix_on_save = 1
 
+" Completions!
+let g:deoplete#enable_at_startup = 1
