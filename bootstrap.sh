@@ -7,11 +7,12 @@ function validate_installed() {
   fi
 }
 
-for req in git node wget
+for req in git node wget yarn vim
 do
   validate_installed $req
 done
 
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 wget -O $HOME/.vimrc https://git.sr.ht/~tcarrio/bootstrap-vim/blob/master/.vimrc
-
+touch $HOME/.vim/.jira_secret
+vim +PluginInstall
